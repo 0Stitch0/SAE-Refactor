@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.Button?>
+
+<BorderPane fx:id="root" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="universite_paris8.iut.mdubois.killer_princess.controleur.Controleur">
+    <top>
+        <HBox fx:id="top" alignment="CENTER" mouseTransparent="false" prefHeight="50.0" spacing="150.0" style="-fx-background-color: grey;" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fx:id="iconPause" fitHeight="31.0" fitWidth="35.0" onMouseClicked="#basculerPause">
+                    <Image url="@Menu/Pause.png" />
+                </ImageView>
+                <Label fx:id="goldDisplay" text="Pièces : 200" textFill="white">
+                    <font> <Font name="Kokonor Regular" size="18.0" /> </font>
+                </Label>
+                <Label fx:id="waveDisplay" text="Vague : 1 / 5" textFill="white">
+                    <font> <Font name="Kokonor Regular" size="18.0" /> </font>
+                </Label>
+                <HBox>
+                    <Label text="Chrono : " textFill="white">
+                        <font> <Font name="Kokonor Regular" size="18.0" /> </font>
+                    </Label>
+                    <Label fx:id="chrono" text="0" textFill="white"  alignment="CENTER" prefHeight="46.0" prefWidth="30.0"/>
+                </HBox>
+                <ImageView fx:id="iconMenu" fitHeight="37.0" fitWidth="37.0" onMouseClicked="#menuJeu">
+                    <Image url="@Menu/iconMenu.png" />
+                </ImageView>
+            </children>
+        </HBox>
+    </top>
+    <center>
+        <StackPane>
+            <TilePane fx:id="panneauTuile" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+            <ImageView fx:id="imagePrincesse" fitHeight="165.0" fitWidth="100.0" preserveRatio="true" StackPane.alignment="CENTER_LEFT">
+                <Image url="@Chateau/Princesse_Chateau.png"/>
+            </ImageView>
+            <ImageView fx:id="imageDragon" fitHeight="165.0" fitWidth="120.0" preserveRatio="true" translateX="-425.0" translateY="50.0">
+                <Image url="@Chateau/Chateau_Dragon.png"/>
+            </ImageView>
+            <Pane fx:id="paneEntitee" mouseTransparent="false">
+<!--                <Button onAction="#basculerPause" text="PAUSE" />-->
+            </Pane>
+
+            <!-- Vague -->
+            <StackPane mouseTransparent="true" StackPane.alignment="CENTER">
+                <ImageView fx:id="nouvelleVague" fitHeight="600" fitWidth="600" opacity="0" preserveRatio="true">
+                    <Image url="@Vague/nouvelleVague.png" />
+                </ImageView>
+                <ImageView fx:id="trois" opacity="0">
+                    <Image url="@Vague/3.png" />
+                </ImageView>
+                <ImageView fx:id="deux" opacity="0">
+                    <Image url="@Vague/2.png" />
+                </ImageView>
+                <ImageView fx:id="un" opacity="0">
+                    <Image url="@Vague/1.png" />
+                </ImageView>
+            </StackPane>
+
+            <!-- Menu Jeu -->
+            <Pane fx:id="menuJeu" mouseTransparent="true" opacity="0">
+                <ImageView fitHeight="700" fitWidth="700" layoutX="139.0" layoutY="3.0">
+                    <Image url="@Menu/Bouclier.png" />
+                </ImageView>
+                <ImageView fx:id="backToMenu" fitHeight="70.0" fitWidth="275.0" layoutX="355.0" layoutY="230.0" onMouseClicked="#backToMenu" preserveRatio="true">
+                    <Image url="@Menu/BackToMenu.png" />
+                </ImageView>
+                <ImageView fx:id="restartGame" fitHeight="50.0" fitWidth="155.0" layoutX="420.0" layoutY="319.0" onMouseClicked="#restartGame" preserveRatio="true">
+                    <Image url="@Menu/Restart.png" />
+                </ImageView>
+                <ImageView fx:id="returnMenu" fitHeight="52.0" fitWidth="121.0" layoutX="428.0" layoutY="409.0" onMouseClicked="#returnToGame" preserveRatio="true">
+                    <Image url="@Menu/Return.png" />
+                </ImageView>
+            </Pane>
+        </StackPane>
+
+
+    </center>
+
+    <!-- Achat piège-->
+   <bottom>
+      <StackPane fx:id="inventaire" mouseTransparent="false" style="-fx-background-color: grey; -fx-padding: 10;">
+          <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0" style="-fx-padding: 5" BorderPane.alignment="BOTTOM_CENTER">
+              <children>
+                  <!-- Squelette -->
+                  <VBox fx:id="cartePiege1" prefHeight="100.0" prefWidth="90.0" style="-fx-background-color: #C2B8B8;-fx-background-radius: 15;-fx-border-radius: 15; -fx-padding: 10;">
+                      <children>
+                          <ImageView fx:id="squelette" fitHeight="69.0" fitWidth="78.0" pickOnBounds="true">
+                              <image>
+                                  <Image url="@Piege/Inventaire/squeletteChapeau.png" />
+                              </image>
+                          </ImageView>
+                          <HBox prefHeight="34.0" prefWidth="70.0">
+                              <children>
+                                  <Label alignment="CENTER" prefHeight="32.0" prefWidth="53.0" text="15" textAlignment="CENTER" />
+                                  <ImageView fitHeight="27.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                                      <image>
+                                          <Image url="@Piege/Inventaire/piece.png" />
+                                      </image>
+                                  </ImageView>
+                              </children>
+                              <VBox.margin>
+                                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              </VBox.margin>
+                          </HBox>
+                      </children>
+                      <padding>
+                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                      </padding>
+                      <HBox.margin>
+                          <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                      </HBox.margin>
+                  </VBox>
+
+                  <!-- Barricade Bois -->
+                  <VBox fx:id="cartePiege2" prefHeight="100.0" prefWidth="90.0" style="-fx-background-color: #C2B8B8;-fx-background-radius: 15;-fx-border-radius: 15; -fx-padding: 10;">
+                      <children>
+                          <ImageView fx:id="BARRICADE_BOIS" fitHeight="69.0" fitWidth="80.0" pickOnBounds="true">
+                              <image>
+                                  <Image url="@Piege/Inventaire/Barricade.png" />
+                              </image>
+                          </ImageView>
+                          <HBox prefHeight="34.0" prefWidth="70.0">
+                              <children>
+                                  <Label alignment="CENTER" prefHeight="32.0" prefWidth="53.0" text="20" textAlignment="CENTER" />
+                                  <ImageView fitHeight="27.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                                      <image>
+                                          <Image url="@Piege/Inventaire/piece.png" />
+                                      </image>
+                                  </ImageView>
+                              </children>
+                              <VBox.margin>
+                                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              </VBox.margin>
+                          </HBox>
+                      </children>
+                      <padding>
+                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                      </padding>
+                  </VBox>
+
+                  <!-- Trappe -->
+                  <VBox fx:id="cartePiege3" prefHeight="100.0" prefWidth="90.0" style="-fx-background-color: #C2B8B8;-fx-background-radius: 15;-fx-border-radius: 15; -fx-padding: 10;">
+                      <children>
+                          <ImageView fx:id="TRAPPE" fitHeight="69.0" fitWidth="80.0" pickOnBounds="true">
+                              <image>
+                                  <Image url="@Piege/Trappe.png" />
+                              </image>
+                          </ImageView>
+                          <HBox prefHeight="34.0" prefWidth="70.0">
+                              <children>
+                                  <Label alignment="CENTER" prefHeight="32.0" prefWidth="53.0" text="25" textAlignment="CENTER" />
+                                  <ImageView fitHeight="27.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                                      <image>
+                                          <Image url="@Piege/Inventaire/piece.png" />
+                                      </image>
+                                  </ImageView>
+                              </children>
+                              <VBox.margin>
+                                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              </VBox.margin>
+                          </HBox>
+                      </children>
+                      <padding>
+                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                      </padding>
+                  </VBox>
+
+                  <!-- Magma -->
+                  <VBox fx:id="cartePiege4" prefHeight="100.0" prefWidth="90.0" style="-fx-background-color: #C2B8B8;-fx-background-radius: 15;-fx-border-radius: 15; -fx-padding: 10;">
+                      <children>
+                          <ImageView fx:id="MAGMA" fitHeight="69.0" fitWidth="80.0" pickOnBounds="true">
+                              <image>
+                                  <Image url="@Piege/Magma.png" />
+                              </image>
+                          </ImageView>
+                          <HBox prefHeight="34.0" prefWidth="70.0">
+                              <children>
+                                  <Label alignment="CENTER" prefHeight="32.0" prefWidth="53.0" text="30" textAlignment="CENTER" />
+                                  <ImageView fitHeight="27.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                                      <image>
+                                          <Image url="@Piege/Inventaire/piece.png" />
+                                      </image>
+                                  </ImageView>
+                              </children>
+                              <VBox.margin>
+                                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              </VBox.margin>
+                          </HBox>
+                      </children>
+                      <padding>
+                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                      </padding>
+                  </VBox>
+
+                  <!-- Tour Archers-->
+                  <VBox fx:id="cartePiege5" prefHeight="100.0" prefWidth="90.0" style="-fx-background-color: #C2B8B8;-fx-background-radius: 15;-fx-border-radius: 15; -fx-padding: 10;">
+                      <children>
+                          <ImageView fx:id="TOUR_ARCHERS" fitHeight="69.0" fitWidth="80.0" pickOnBounds="true">
+                              <image>
+                                  <Image url="@Piege/Tour_Archer.png" />
+                              </image>
+                          </ImageView>
+                          <HBox prefHeight="34.0" prefWidth="70.0">
+                              <children>
+                                  <Label alignment="CENTER" prefHeight="32.0" prefWidth="53.0" text="35" textAlignment="CENTER" />
+                                  <ImageView fitHeight="27.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                                      <image>
+                                          <Image url="@Piege/Inventaire/piece.png" />
+                                      </image>
+                                  </ImageView>
+                              </children>
+                              <VBox.margin>
+                                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              </VBox.margin>
+                          </HBox>
+                      </children>
+                      <padding>
+                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                      </padding>
+                  </VBox>
+
+                  <!-- Canon -->
+                  <VBox fx:id="cartePiege6" prefHeight="100.0" prefWidth="90.0" style="-fx-background-color: #C2B8B8;-fx-background-radius: 15;-fx-border-radius: 15; -fx-padding: 10;">
+                      <children>
+                          <ImageView fx:id="CANON" fitHeight="69.0" fitWidth="80.0" pickOnBounds="true">
+                              <image>
+                                  <Image url="@Piege/Canon.png" />
+                              </image>
+                          </ImageView>
+                          <HBox prefHeight="34.0" prefWidth="70.0">
+                              <children>
+                                  <Label alignment="CENTER" prefHeight="32.0" prefWidth="53.0" text="40" textAlignment="CENTER" />
+                                  <ImageView fitHeight="27.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                                      <image>
+                                          <Image url="@Piege/Inventaire/piece.png" />
+                                      </image>
+                                  </ImageView>
+                              </children>
+                              <VBox.margin>
+                                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              </VBox.margin>
+                          </HBox>
+                      </children>
+                      <padding>
+                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                      </padding>
+                  </VBox>
+
+                  <!-- Fire -->
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                      <children>
+                          <ImageView fitHeight="106.0" fitWidth="170.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#Dragon">
+                              <VBox.margin>
+                                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                              </VBox.margin>
+                              <image>
+                                  <Image url="@Piege/Inventaire/FIRE.png" />
+                              </image>
+                          </ImageView>
+                      </children>
+                      <HBox.margin>
+                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                      </HBox.margin>
+                  </VBox>
+              </children>
+              <BorderPane.margin>
+                  <Insets />
+              </BorderPane.margin>
+          </HBox>
+      </StackPane>
+   </bottom>
+    <StackPane fx:id="ecranFinPartie" opacity="0.0" mouseTransparent="true" prefHeight="672.0" prefWidth="960.0" style="-fx-font-size: 40px; -fx-font-weight: bold;">
+        <children>
+            <!-- <Label fx:id="texteFin" style="-fx-font-size: 50px; -fx-text-fill: white; -fx-font-weight: bold;" translateX="350" translateY="80"/> -->
+            <StackPane StackPane.alignment="TOP_CENTER" mouseTransparent="true">
+                <ImageView fx:id="victoire" opacity="0" translateX="250" translateY="25">
+                    <Image url="@Vague/Victory.png"></Image>
+                </ImageView>
+                <ImageView fx:id="perte" opacity="0" translateX="250" translateY="25">
+                    <Image url="@Vague/Game_Over.png"></Image>
+                </ImageView>
+            </StackPane>
+        </children>
+    </StackPane>
+</BorderPane>

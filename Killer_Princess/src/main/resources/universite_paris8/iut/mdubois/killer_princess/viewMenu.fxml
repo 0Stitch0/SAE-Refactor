@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<?import org.controlsfx.control.ToggleSwitch?>
+<?import javafx.scene.control.Slider?>
+
+<!-- Menu -->
+<?import javafx.scene.layout.HBox?>
+<Pane fx:id="root" prefHeight="840.0" prefWidth="965.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="universite_paris8.iut.mdubois.killer_princess.controleur.ControleurMenu">
+    <Pane fx:id="menu" prefHeight="844.0" prefWidth="969.0" mouseTransparent="false">
+        <Pane prefHeight="400.0" prefWidth="449.0">
+            <ImageView fitHeight="840.0" fitWidth="972.0" layoutX="-6.0">
+                <Image url="@Menu/Fond.png" />
+            </ImageView>
+        </Pane>
+        <VBox alignment="CENTER" prefHeight="840.0" prefWidth="969.0">
+            <ImageView fitHeight="219.0" fitWidth="586.0" preserveRatio="true">
+                <Image url="@Menu/KillerPrincess.png" />
+            <VBox.margin>
+               <Insets bottom="100.0" />
+            </VBox.margin>
+            </ImageView>
+            <ImageView fx:id="start" fitHeight="87.0" fitWidth="159.0" onMouseClicked="#startGame" preserveRatio="true">
+                <Image url="@Menu/Start.png" />
+            </ImageView>
+            <ImageView fx:id="survieMode" onMouseClicked="#survieMode" fitHeight="121.0" fitWidth="340.0" preserveRatio="true">
+                <Image url="@Menu/SurvivalMode.png" />
+            </ImageView>
+            <ImageView fx:id="settings" onMouseClicked="#settings" fitHeight="97.0" fitWidth="208.0"  preserveRatio="true">
+                <Image url="@Menu/Settings.png" />
+            </ImageView>
+            <ImageView fx:id="quit" fitHeight="88.0" fitWidth="159.0" onMouseClicked="#quitJeu" preserveRatio="true">
+                <Image url="@Menu/Quit.png" />
+            </ImageView>
+        </VBox>
+    </Pane>
+
+    <Pane fx:id="choixMapMenu" prefHeight="844.0" prefWidth="969.0" opacity="0.0" mouseTransparent="true">
+        <children>
+
+            <ImageView fitHeight="844.0" fitWidth="969.0" pickOnBounds="true">
+                <image>
+                    <Image url="@Menu/Fond.png" />
+                </image>
+            </ImageView>
+
+            <VBox alignment="CENTER" spacing="40.0" prefHeight="844.0" prefWidth="969.0">
+                <children>
+                    <Text text="Choice of the map" style="-fx-font-family: 'MedievalSharp'; -fx-font-size: 40; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" />
+                    <HBox alignment="CENTER" spacing="40.0">
+                        <children>
+                            <ImageView fx:id="miniatureMap1" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;" onMouseClicked="#clicMap1">
+                                <image>
+                                    <Image url="@Map/map1.png" />
+                                </image>
+                            </ImageView>
+                            <ImageView fx:id="miniatureMap2" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;" onMouseClicked="#clicMap2">
+                                <image>
+                                    <Image url="@Map/map2.png" />
+                                </image>
+                            </ImageView>
+                        </children>
+                    </HBox>
+                </children>
+            </VBox>
+        </children>
+    </Pane>
+
+    <!-- Menu Settings -->
+    <Pane fx:id="settingsMenu" layoutX="163.0" layoutY="114.0" opacity="0.0" mouseTransparent="true" prefHeight="665.0" prefWidth="615.0">
+        <children>
+            <ImageView fitHeight="649.0" fitWidth="888.0" layoutX="-116.0" layoutY="64.0">
+                <Image url="@Menu/Parchemin.png" />
+            </ImageView>
+            <Slider fx:id="sliderMusique" min="-80"  max="6" layoutX="275.0" layoutY="276.0" prefHeight="20.0" prefWidth="243.0" blendMode="SOFT_LIGHT" stylesheets="@slider.css"/>
+            <Text fill="#4d4c41" layoutX="81.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Musique" wrappingWidth="132.55179122213417">
+                <font>
+                    <Font name="Kokonor Regular" size="25.0" />
+                </font>
+            </Text>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+            <Slider fx:id="sliderBruitage" min="-80"  max="6" layoutX="277.0" layoutY="331.0" prefHeight="20.0" prefWidth="243.0" blendMode="SOFT_LIGHT" stylesheets="@slider.css"/>
+            <Text fill="#4d4c41" layoutX="77.0" layoutY="352.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Effets Sonores" wrappingWidth="154.90253316943745">
+                <font>
+                    <Font name="Kokonor Regular" size="25.0" />
+                </font>
+            </Text>
+            <Text fill="#4d4c41" layoutX="87.0" layoutY="423.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Son" wrappingWidth="154.90253316943745">
+                <font>
+                    <Font name="Kokonor Regular" size="25.0" />
+                </font>
+            </Text>
+            <ToggleSwitch fx:id="switchSon" layoutX="-25.0" layoutY="399.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="244.0" scaleX="2" scaleY="2" blendMode="COLOR_BURN"/>
+            <ImageView fx:id="returnOption" onMouseClicked="#returnOption" fitHeight="48.0" fitWidth="298.0" layoutX="171.0" layoutY="463.0">
+                <Image url="@Menu/BackToMenu.png" />
+            </ImageView>
+        </children>
+    </Pane>
+</Pane>
